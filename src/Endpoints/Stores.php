@@ -7,7 +7,7 @@ use MichaelB\ShipStation\Models\Store;
 
 class Stores extends BaseEndpoint
 {
-    protected $endpoint = '/stores';
+    protected $endpoint = '/stores/';
 
     /**
      * Get a single store by id

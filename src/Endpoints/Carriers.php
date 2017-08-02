@@ -7,7 +7,7 @@ class Carriers extends BaseEndpoint
     /**
      * @var string
      */
-    protected $endpoint = '/carriers';
+    protected $endpoint = '/carriers/';
 
     /**
      * @return \Psr\Http\Message\StreamInterface

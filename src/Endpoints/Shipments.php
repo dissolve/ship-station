@@ -6,7 +6,7 @@ namespace MichaelB\ShipStation\Endpoints;
 
 class Shipments extends BaseEndpoint
 {
-    protected $endpoint = '/shipments';
+    protected $endpoint = '/shipments/';
 
     /**
      * Get a list of shipments or query shipments.
