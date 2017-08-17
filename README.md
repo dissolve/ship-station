@@ -3,7 +3,7 @@
 ## Install
 ---
 ```
-composer require zack6849/ship-station
+composer require dissolve/ship-station
 ```
 
 ## Docs
