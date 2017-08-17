@@ -2,6 +2,7 @@
     "name": "dissolve/ship-station",
     "description": "A php wrapper for ship station's rest api",
     "type": "library",
+    "version": "dev-master",
     "homepage": "https://github.com/dissolve/ship-station/",
     "keywords": ["ship", "shipping", "ship-station", "shipstation", "api", "wrapper"],
     "license": "MIT",
