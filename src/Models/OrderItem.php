@@ -30,9 +30,9 @@ class OrderItem extends BaseModel
     protected function setWeightAttribute($value)
     {
         if ($value instanceof Weight) {
-            $this->attributes['weight'] = $value;
+            $this->weight = $value;
         } else {
-            $this->attributes['weight'] = new Weight($value);
+            $this->weight = new Weight($value);
         }
     }
 }

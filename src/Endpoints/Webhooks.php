@@ -8,7 +8,7 @@ class Webhooks extends BaseEndpoint
     /**
      * @var string
      */
-    protected $endpoint = '/webhooks';
+    protected $endpoint = '/webhooks/';
 
     /**
      * @param string $friendly_name

@@ -1,8 +1,8 @@
 {
-    "name": "zack6849/ship-station",
+    "name": "dissolve/ship-station",
     "description": "A php wrapper for ship station's rest api",
-    "type": "library",
-    "homepage": "https://github.com/zack6849/ship-station/",
+    "type": "Api Wrapper",
+    "homepage": "https://github.com/dissolve/ship-station/",
     "keywords": ["ship", "shipping", "ship-station", "shipstation", "api", "wrapper"],
     "license": "MIT",
     "authors": [

@@ -7,7 +7,7 @@ use MichaelB\ShipStation\Models\Warehouse;
 
 class Warehouses extends BaseEndpoint
 {
-    protected $endpoint = '/warehouses';
+    protected $endpoint = '/warehouses/';
 
     /**
      * @param string $warehouseId

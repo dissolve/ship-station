@@ -6,7 +6,7 @@ namespace MichaelB\ShipStation\Endpoints;
 
 class Customers extends BaseEndpoint
 {
-    protected $endpoint = '/customers';
+    protected $endpoint = '/customers/';
 
     /**
      * Get a single customer by id

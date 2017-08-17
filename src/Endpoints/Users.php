@@ -5,7 +5,7 @@ namespace MichaelB\ShipStation\Endpoints;
 
 class Users extends BaseEndpoint
 {
-    protected $endpoint = '/users';
+    protected $endpoint = '/users/';
 
     /**
      * @param bool|false $showInactive

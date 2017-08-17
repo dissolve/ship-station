@@ -7,7 +7,7 @@ use MichaelB\ShipStation\Models\Product;
 
 class Products extends BaseEndpoint
 {
-    protected $endpoint = '/products';
+    protected $endpoint = '/products/';
 
     /**
      * Get a product by id
