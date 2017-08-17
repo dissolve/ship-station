@@ -11,6 +11,14 @@ class Webhooks extends BaseEndpoint
     protected $endpoint = '/webhooks/';
 
     /**
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function getList()
+    {
+        return $this->get();
+    }
+
+    /**
      * @param string $friendly_name
      * @param string $target_url
      * @param string $event

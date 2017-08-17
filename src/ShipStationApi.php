@@ -8,6 +8,7 @@ use MichaelB\ShipStation\Endpoints\Carriers;
 use MichaelB\ShipStation\Endpoints\Customers;
 use MichaelB\ShipStation\Endpoints\Orders;
 use MichaelB\ShipStation\Endpoints\Products;
+use MichaelB\ShipStation\Endpoints\Fulfillments;
 use MichaelB\ShipStation\Endpoints\Shipments;
 use MichaelB\ShipStation\Endpoints\Stores;
 use MichaelB\ShipStation\Endpoints\Users;
@@ -89,6 +90,14 @@ class ShipStationApi Extends Client
     public function getProductsService()
     {
         return new Products($this);
+    }
+
+    /**
+     * @return Fulfillments
+     */
+    public function getFulfillmentsService()
+    {
+        return new Fulfillments($this);
     }
 
     /**
