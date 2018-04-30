@@ -12,7 +12,7 @@ abstract class BaseModel implements ArrayAccess, Arrayable
     /**
      * @var array
      */
-    protected $attributes = [];
+    private $attributes = [];
 
     /**
      * BaseModel constructor.
@@ -31,7 +31,11 @@ abstract class BaseModel implements ArrayAccess, Arrayable
     protected function setAttributes($attributes = [])
     {
         foreach ($attributes as $key => $value) {
-            $this->$key = $value;
+            if (in_array(gettype($value), ['array','object'])) {
+                $this->__set($key, $value);
+            } else {
+                $this->{$key} = (is_bool($value) && !is_null($value)) ? json_encode($value) : $value;
+            }
         }
 
         return $this;
@@ -53,12 +57,28 @@ abstract class BaseModel implements ArrayAccess, Arrayable
         $object = get_object_vars($this);
 
         foreach ($object as $key => $value) {
-            if (is_object($value) && $value instanceof Arrayable) {
-                $object[$key] = $value->toArray();
+            if (!is_array($value)) {
+                $object[$key] = $this->encodeValue($value);
+            } else {
+                $object[$key] = array();
+                foreach($value as $entry){
+                    $object[$key][] = $this->encodeValue($entry);
+                }
             }
         }
 
         return $object;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function encodeValue($value)
+    {
+        if(is_object($value) && $value instanceof Arrayable) {
+            return $value->toArray();
+        }
+        return $value;
     }
 
     /**
