@@ -120,7 +120,7 @@ class Order extends BaseModel
     /**
      * @var string
      */
-    protected $gitMessage;
+    protected $giftMessage;
 
     /**
      * @var string
@@ -234,6 +234,27 @@ class Order extends BaseModel
     /**
      * @param $value
      */
+    protected function setItemsAttribute($value)
+    {
+        if (is_array($value)) {
+            $items = $value;
+        } else {
+            $items = array($value);
+        }
+        $attach_items = [];
+        foreach($items as $order_item) {
+            if ($value instanceof OrderItem) {
+                $attach_items[] = $order_item;
+            } else {
+                $attach_items[] = new OrderItem($order_item);
+            }
+        }
+        $this->items = $attach_items;
+    }
+
+    /**
+     * @param $value
+     */
     protected function setWeightAttribute($value)
     {
         if ($value instanceof Weight) {
@@ -250,7 +271,7 @@ class Order extends BaseModel
     protected function setDimensionsAttribute($value)
     {
         if ($value instanceof Dimensions) {
-            $thisdimensions = $value;
+            $this->dimensions = $value;
         } else {
             $this->dimensions = new Dimensions($value);
         }
