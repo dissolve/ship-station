@@ -99,8 +99,12 @@ class Orders extends BaseEndpoint
      */
     public function createOrders($orders = [])
     {
+        $orders = array_map(function($order) {
+            return array_filter($order->toArray());
+        }, $orders);
+
         return $this->post('createorders', [
-            'form_params' => $orders->toArray()
+            'json' => $orders
         ]);
     }
 
