@@ -100,7 +100,7 @@ class Orders extends BaseEndpoint
     public function createOrders($orders = [])
     {
         $orders = array_map(function($order) {
-            return array_filter($order->toArray());
+            return $order->toArray(true);
         }, $orders);
 
         return $this->post('createorders', [
