@@ -52,17 +52,19 @@ abstract class BaseModel implements ArrayAccess, Arrayable
     /**
      * @return array
      */
-    public function toArray()
+    public function toArray($skip_null = false)
     {
         $object = get_object_vars($this);
 
         foreach ($object as $key => $value) {
-            if (!is_array($value)) {
-                $object[$key] = $this->encodeValue($value);
+            if (is_null($value)) {
+                unset($object[$key]);
+            } else if (!is_array($value)) {
+                $object[$key] = $this->encodeValue($value, $skip_null);
             } else {
                 $object[$key] = array();
                 foreach($value as $entry){
-                    $object[$key][] = $this->encodeValue($entry);
+                    $object[$key][] = $this->encodeValue($entry, $skip_null);
                 }
             }
         }
@@ -73,10 +75,10 @@ abstract class BaseModel implements ArrayAccess, Arrayable
     /**
      * @return mixed
      */
-    public function encodeValue($value)
+    public function encodeValue($value, $skip_null)
     {
         if(is_object($value) && $value instanceof Arrayable) {
-            return $value->toArray();
+            return $value->toArray($skip_null);
         }
         return $value;
     }
